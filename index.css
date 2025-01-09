@@ -1,0 +1,98 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, rgb(220, 188, 131), rgb(215, 215, 101), rgb(179, 179, 226), rgb(213, 162, 213));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 800px;
+  width: 100%;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.face {
+  width: 200px;
+  height: 250px;
+  background-color: yellow;
+  border-radius: 60%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: moveLeftToRight 10s linear infinite; /* This line adds the animation */
+}
+
+.eyes {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  right: 25%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.eye {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  animation: moveEyes 2s infinite alternate;
+}
+
+.eye::before {
+  content: '';
+  width: 9px;
+  height: 9px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+}
+
+@keyframes moveEyes {
+  0% {
+      transform: translateX(0) translateY(0);
+  }
+  25% {
+      transform: translateX(-8px) translateY(-8px);
+  }
+  50% {
+      transform: translateX(8px) translateY(-8px); 
+  }
+  75% {
+      transform: translateX(8px) translateY(8px); 
+  }
+  100% {
+      transform: translateX(-8px) translateY(8px); 
+  }
+}
+
+
+@keyframes moveLeftToRight {
+  0% {
+    transform: translateX(-100%); 
+  }
+  100% {
+    transform: translateX(100%); 
+  }
+}
+
+.mouth {
+  width: 40px;
+  height: 10px;
+  background-color: brown;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 15%;
+  display: block;
+}
